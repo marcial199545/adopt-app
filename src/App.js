@@ -1,33 +1,31 @@
 // code is going to be here
+import React from "react";
+import { render } from "react-dom";
+import { generateId } from "./helpers.js";
+import Pet from "./Pet";
 const root = document.querySelector("#root");
-const Pet = ({ name, animal, breed }) => {
-    return React.createElement("div", {}, [
-        React.createElement("h1", { key: 1 }, name),
-        React.createElement("h2", { key: 2 }, animal),
-        React.createElement("h2", { key: 3 }, breed)
-    ]);
-};
+
 const App = () => {
     return React.createElement("div", {}, [
-        React.createElement("h1", { key: 4 }, "Adopt Me"),
+        React.createElement("h1", { key: generateId() }, "Adopt Me"),
         React.createElement(Pet, {
-            key: 5,
+            key: generateId(),
             name: "Luna",
             animal: "Dog",
             breed: "labrador"
         }),
         React.createElement(Pet, {
-            key: 6,
+            key: generateId(),
             name: "Doink",
             animal: "Cat",
             breed: "mixed"
         }),
         React.createElement(Pet, {
-            key: 7,
+            key: generateId(),
             name: "Sam",
             animal: "Dog",
             breed: "German Shepperd"
         })
     ]);
 };
-ReactDOM.render(React.createElement(App), root);
+render(React.createElement(App), root);
